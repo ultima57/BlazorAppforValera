@@ -1,8 +1,10 @@
 ﻿using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorAppforValera.Pages {
-    public class EmployeeListBase : ComponentBase {
+namespace BlazorAppforValera.Pages
+{
+    public class EmployeeListBase : ComponentBase
+    {
         public IEnumerable<Employee> Employees { get; set; }
 
         protected override Task OnInitializedAsync() {
@@ -18,7 +20,7 @@ namespace BlazorAppforValera.Pages {
                 Email = "David@pragimtech.com",
                 //   DateOfBrith = DateTime.UtcNow,
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
+                //Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
                 PhotoPath = "images/john.png"
             };
 
@@ -29,7 +31,7 @@ namespace BlazorAppforValera.Pages {
                 Email = "Sam@pragimtech.com",
                 //   DateOfBrith = DateTime.UtcNow,
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 2, DepartmentName = "HR" },
+                // Department = new Department { DepartmentId = 2, DepartmentName = "HR" },
                 PhotoPath = "images/sam.jpg"
             };
 
@@ -40,7 +42,7 @@ namespace BlazorAppforValera.Pages {
                 Email = "mary@pragimtech.com",
                 //   DateOfBrith = DateTime.UtcNow,
                 Gender = Gender.Female,
-                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
+                // Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
                 PhotoPath = "images/mary.png"
             };
 
@@ -51,7 +53,7 @@ namespace BlazorAppforValera.Pages {
                 Email = "sara@pragimtech.com",
                 //   DateOfBrith = DateTime.UtcNow,
                 Gender = Gender.Female,
-                Department = new Department { DepartmentId = 3, DepartmentName = "Payroll" },
+                //   Department = new Department { DepartmentId = 3, DepartmentName = "Payroll" },
                 PhotoPath = "images/sara.png"
             };
 

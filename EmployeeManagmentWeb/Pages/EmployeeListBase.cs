@@ -1,18 +1,23 @@
 ﻿using EmployeeManagement.Models;
+using EmployeeManagmentWeb.Services;
 using Microsoft.AspNetCore.Components;
 
 namespace EmployeeManagmentWeb.Pages
 {
     public class EmployeeListBase : ComponentBase
     {
+        [Inject]
+        public IEmployeeService EmployeeService { get; set; }
         public IEnumerable<Employee> Employees { get; set; }
 
-        protected override Task OnInitializedAsync() {
-            LoadEmployees();
-            return base.OnInitializedAsync();
+        protected override async Task OnInitializedAsync() {
+            Employees = (await EmployeeService.GetEmployees()).ToList();
+            // await Task.Run(LoadEmployees);
+            // return base.OnInitializedAsync();
         }
 
         private void LoadEmployees() {
+            System.Threading.Thread.Sleep(1000);
             Employee e1 = new Employee {
                 EmployeeId = 1,
                 FirstName = "John",
@@ -20,7 +25,7 @@ namespace EmployeeManagmentWeb.Pages
                 Email = "David@pragimtech.com",
                 //   DateOfBrith = DateTime.UtcNow,
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
+                //  Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
                 PhotoPath = "images/john.png"
             };
 
@@ -31,7 +36,7 @@ namespace EmployeeManagmentWeb.Pages
                 Email = "Sam@pragimtech.com",
                 //   DateOfBrith = DateTime.UtcNow,
                 Gender = Gender.Male,
-                Department = new Department { DepartmentId = 2, DepartmentName = "HR" },
+                //   Department = new Department { DepartmentId = 2, DepartmentName = "HR" },
                 PhotoPath = "images/sam.jpg"
             };
 
@@ -42,7 +47,7 @@ namespace EmployeeManagmentWeb.Pages
                 Email = "mary@pragimtech.com",
                 //   DateOfBrith = DateTime.UtcNow,
                 Gender = Gender.Female,
-                Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
+                //   Department = new Department { DepartmentId = 1, DepartmentName = "IT" },
                 PhotoPath = "images/mary.png"
             };
 
@@ -53,7 +58,7 @@ namespace EmployeeManagmentWeb.Pages
                 Email = "sara@pragimtech.com",
                 //   DateOfBrith = DateTime.UtcNow,
                 Gender = Gender.Female,
-                Department = new Department { DepartmentId = 3, DepartmentName = "Payroll" },
+                //   Department = new Department { DepartmentId = 3, DepartmentName = "Payroll" },
                 PhotoPath = "images/sara.png"
             };
 
