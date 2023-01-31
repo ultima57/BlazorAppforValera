@@ -1,6 +1,7 @@
 ﻿using EmployeeManagement.Api.Repository;
 using EmployeeManagement.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 
 namespace EmployeeManagement.Api.Controllers
 {
@@ -29,7 +30,9 @@ namespace EmployeeManagement.Api.Controllers
         [HttpGet]
         public async Task<ActionResult> GetEmployees() {
             try {
-                return Ok(await employeeRepository.GetEmployees());
+
+                return Ok(JsonSerializer.Serialize(employeeRepository.GetEmployees()));
+                //return Ok(await employeeRepository.GetEmployees());
             } catch (Exception) {
                 return StatusCode(StatusCodes.Status500InternalServerError,
                     "Error retrieving data from the database");
